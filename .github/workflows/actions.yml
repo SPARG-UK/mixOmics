@@ -107,7 +107,7 @@ jobs:
       - name: Check ✅ 
         run: rcmdcheck::rcmdcheck(args = c("--no-manual"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
-        continue-on-error: $(github.event_name == 'schedule')
+        continue-on-error: ${{ github.event_name == 'schedule' }}
 
       - name: Check --as-cran ✅ ✅ 
         if: github.event_name == 'schedule' && github.repository == 'mixOmicsTeam/mixOmics'
